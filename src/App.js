@@ -3,6 +3,8 @@ import SearchForm from './components/SearchForm';
 import axios from 'axios';
 import propsTypes from 'prop-types';
 import MainSection from './components/MainSection';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
    const API_ENDPOINT = 'https://pokeapi.co/api/v2/pokemon';
@@ -44,17 +46,10 @@ function App() {
    const upperCaseFirstLetter = (string) => {
       return string ? string.charAt(0).toUpperCase() + string.slice(1) : null;
    };
-   console.log(pokemon);
+
    return (
       <div className="App bg-gray-900 text-yellow-400 w-full min-h-screen px-4">
-         <div className="title">
-            <h1 className="font-mono text-4xl md:text-6xl bg-yellow-400 text-gray-900 text-center pt-2 pb-8 px-4 font-bold rounded-b-xl">
-               Pokemon Tracker{' '}
-               <span className="text-xs bg-gray-900 w-max text-yellow-400 italic rounded-xl px-2 py-1 md:-ml-5 ">
-                  By Rayzor
-               </span>
-            </h1>
-         </div>
+         <Header />
          {/* search form section */}
          <SearchForm
             setSearchValue={setSearchValue}
@@ -66,6 +61,7 @@ function App() {
             pokemon={pokemon}
             isPokemonChosen={isPokemonChosen}
          />
+         <Footer />
       </div>
    );
 }
@@ -73,6 +69,9 @@ function App() {
 App.prototype = {
    setSearchValue: propsTypes.func,
    getDataPokemon: propsTypes.func,
+   upperCaseFirstLetter: propsTypes.func,
+   pokemon: propsTypes.object,
+   isPokemonChosen: propsTypes.bool,
 };
 
 export default App;
