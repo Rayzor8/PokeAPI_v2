@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchForm = ({ setSearchValue }) => {
+const SearchForm = ({ setSearchValue, getDataPokemon }) => {
    return (
       <form className="flex justify-center flex-col items-center">
          <div className="mb-6 w-full md:w-8/12">
@@ -19,7 +19,8 @@ const SearchForm = ({ setSearchValue }) => {
             />
          </div>
          <button
-            type="submit"
+            onClick={getDataPokemon}
+            type="button"
             className=" transition-all duration-150 ease-out text-gray-900 bg-green-400 hover:bg-green-500 focus:ring-2 focus:ring-yellow-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
          >
             Search Pokemon
